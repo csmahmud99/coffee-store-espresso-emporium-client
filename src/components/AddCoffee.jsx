@@ -1,10 +1,27 @@
 const AddCoffee = () => {
+    const handleAddCoffee = event => {
+        event.preventDefault();
+        
+        const form = event.target;
+        const name = form.name.value;
+        const quantity = form.quantity.value;
+        const chef = form.chef.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const photo = form.photo.value;
+
+        const coffee = {name, quantity, chef, supplier, taste, category, photo};
+
+        console.log(coffee);
+    };
+
     return (
         <div className="bg-[#F4F3F0] p-28">
             <div className="container">
                 <div className="row-auto">
                     <h2 className="text-3xl font-extrabold text-center mb-9">Add a Coffee</h2>
-                    <form>
+                    <form onSubmit={handleAddCoffee}>
                         {/* Form Row :: Name & Quantity */}
                         <div className="md:flex gap-7">
                             <div className="form-control md:w-1/2">
