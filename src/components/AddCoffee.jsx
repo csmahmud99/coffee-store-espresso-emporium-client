@@ -11,9 +11,22 @@ const AddCoffee = () => {
         const category = form.category.value;
         const photo = form.photo.value;
 
-        const coffee = {name, quantity, chef, supplier, taste, category, photo};
+        const newCoffee = {name, quantity, chef, supplier, taste, category, photo};
 
-        console.log(coffee);
+        console.log(newCoffee);
+
+        // Sending data to the server
+        fetch("http://localhost:5000/coffee", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCoffee)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     };
 
     return (
